@@ -1,26 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="100%" height="100%">
   <defs>
     <!-- Background Gradient -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0f1d" />
-      <stop offset="50%" stop-color="#0d1b2a" />
-      <stop offset="100%" stop-color="#1b263b" />
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="50%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#1b263b"/>
     </linearGradient>
 
-    <!-- Accent Gradients -->
-    <linearGradient id="accentBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38bdf8" />
-      <stop offset="100%" stop-color="#6366f1" />
-    </linearGradient>
-
-    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.8" />
-      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.3" />
+    <!-- Title & Accent Gradients -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
     </linearGradient>
 
     <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.75" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.85" />
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9"/>
     </linearGradient>
 
     <!-- Subtle Glow Filter -->
@@ -28,179 +24,113 @@
       <feGaussianBlur stdDeviation="6" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
-
-    <!-- Background Grid Pattern -->
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.7" stroke-opacity="0.25" />
-    </pattern>
-
-    <style>
-      .title-text {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        font-weight: 800;
-        font-size: 44px;
-        fill: #f8fafc;
-        letter-spacing: -0.5px;
-      }
-      .subtitle-text {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        font-weight: 500;
-        font-size: 19px;
-        fill: #94a3b8;
-      }
-      .badge-text {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        font-weight: 600;
-        font-size: 13px;
-        fill: #38bdf8;
-      }
-      .pill-text {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        font-weight: 600;
-        font-size: 13px;
-        fill: #e2e8f0;
-      }
-
-      /* Dynamic Animations (Kept in background & periphery so text remains crisp and unobstructed) */
-      @keyframes pulseGlow {
-        0%, 100% { opacity: 0.35; transform: scale(1); }
-        50% { opacity: 0.7; transform: scale(1.08); }
-      }
-      @keyframes floatDevice1 {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-10px) rotate(1.5deg); }
-      }
-      @keyframes floatDevice2 {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(8px) rotate(-1.5deg); }
-      }
-      @keyframes signalFlow {
-        0% { stroke-dashoffset: 120; }
-        100% { stroke-dashoffset: 0; }
-      }
-      @keyframes radarSweep {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-
-      .animated-glow-1 {
-        transform-origin: 1050px 90px;
-        animation: pulseGlow 6s ease-in-out infinite;
-      }
-      .animated-glow-2 {
-        transform-origin: 150px 300px;
-        animation: pulseGlow 8s ease-in-out infinite alternate;
-      }
-      .device-card-1 {
-        animation: floatDevice1 5s ease-in-out infinite;
-      }
-      .device-card-2 {
-        animation: floatDevice2 6.5s ease-in-out infinite;
-      }
-      .signal-line {
-        stroke-dasharray: 8 6;
-        animation: signalFlow 2.5s linear infinite;
-      }
-      .radar-arm {
-        transform-origin: 1060px 180px;
-        animation: radarSweep 10s linear infinite;
-      }
-    </style>
   </defs>
 
   <!-- Deep Slate Background -->
-  <rect width="100%" height="100%" fill="url(#bgGrad)" rx="16" />
-  <rect width="100%" height="100%" fill="url(#grid)" rx="16" />
+  <rect width="1200" height="320" rx="16" fill="url(#bgGrad)"/>
 
-  <!-- Ambient Dynamic Glows (Behind all content) -->
-  <circle class="animated-glow-1" cx="1050" cy="90" r="170" fill="#38bdf8" opacity="0.3" filter="url(#glow)" />
-  <circle class="animated-glow-2" cx="150" cy="300" r="140" fill="#6366f1" opacity="0.25" filter="url(#glow)" />
+  <!-- Dynamic / Animated Background Wave Elements (Background Layer) -->
+  <g opacity="0.25">
+    <path d="M 0,160 Q 300,80 600,160 T 1200,160 L 1200,320 L 0,320 Z" fill="#0284c7">
+      <animate attributeName="d" dur="10s" repeatCount="indefinite"
+        values="M 0,160 Q 300,80 600,160 T 1200,160 L 1200,320 L 0,320 Z;
+                M 0,180 Q 300,240 600,140 T 1200,180 L 1200,320 L 0,320 Z;
+                M 0,160 Q 300,80 600,160 T 1200,160 L 1200,320 L 0,320 Z"/>
+    </path>
+    <path d="M 0,200 Q 400,280 800,180 T 1200,220 L 1200,320 L 0,320 Z" fill="#6366f1">
+      <animate attributeName="d" dur="14s" repeatCount="indefinite"
+        values="M 0,200 Q 400,280 800,180 T 1200,220 L 1200,320 L 0,320 Z;
+                M 0,150 Q 400,100 800,220 T 1200,170 L 1200,320 L 0,320 Z;
+                M 0,200 Q 400,280 800,180 T 1200,220 L 1200,320 L 0,320 Z"/>
+    </path>
+  </g>
 
-  <!-- Connecting Telemetry Line (Animated) -->
-  <path class="signal-line" d="M 520 225 Q 750 250 910 180 T 1060 180" fill="none" stroke="#38bdf8" stroke-width="2.2" opacity="0.45" />
+  <!-- Grid Pattern Overlay for Tech feel -->
+  <g stroke="#ffffff" stroke-width="0.5" opacity="0.08">
+    <line x1="0" y1="40" x2="1200" y2="40"/>
+    <line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="280" x2="1200" y2="280"/>
+    <line x1="200" y1="0" x2="200" y2="320"/>
+    <line x1="500" y1="0" x2="500" y2="320"/>
+    <line x1="800" y1="0" x2="800" y2="320"/>
+    <line x1="1100" y1="0" x2="1100" y2="320"/>
+  </g>
 
-  <!-- Background Decorative Fleet Radar Graphic on Right Side -->
-  <g opacity="0.6">
-    <circle cx="1060" cy="180" r="110" fill="none" stroke="#334155" stroke-width="1.2" stroke-dasharray="4 4" />
-    <circle cx="1060" cy="180" r="75" fill="none" stroke="#475569" stroke-width="1.5" />
-    <circle cx="1060" cy="180" r="40" fill="none" stroke="#64748b" stroke-width="1.5" />
-    <circle cx="1060" cy="180" r="5" fill="#38bdf8" />
-    
-    <!-- Rotating Radar Line -->
-    <line class="radar-arm" x1="1060" y1="180" x2="1060" y2="70" stroke="url(#accentBlue)" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+  <!-- Animated Radar Pulse Rings (Right Peripheral Background) -->
+  <g transform="translate(1040, 160)" opacity="0.75">
+    <circle r="75" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.4">
+      <animate attributeName="r" values="50;95;50" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;0;0.7" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="45" fill="none" stroke="#818cf8" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <circle r="6" fill="#38bdf8" filter="url(#glow)"/>
   </g>
 
   <!-- Floating Dynamic Device Card 1 (Laptop / macOS / Windows) -->
-  <g class="device-card-1" transform="translate(860, 70)">
-    <rect width="160" height="95" rx="10" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.2" stroke-opacity="0.6" filter="url(#glow)" />
-    <!-- Screen Header -->
-    <rect x="12" y="12" width="136" height="14" rx="4" fill="#334155" opacity="0.6" />
+  <g transform="translate(860, 60)">
+    <animateTransform attributeName="transform" type="translate"
+      values="860,60; 860,50; 860,60" dur="5s" repeatCount="indefinite" />
+    <rect width="165" height="95" rx="10" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.2" stroke-opacity="0.7" filter="url(#glow)"/>
+    <rect x="12" y="12" width="141" height="14" rx="4" fill="#334155" opacity="0.6" />
     <circle cx="20" cy="19" r="3" fill="#ef4444" />
     <circle cx="29" cy="19" r="3" fill="#eab308" />
     <circle cx="38" cy="19" r="3" fill="#22c55e" />
-    <!-- Metrics -->
-    <rect x="12" y="34" width="70" height="8" rx="3" fill="#38bdf8" opacity="0.8" />
-    <rect x="12" y="48" width="110" height="6" rx="3" fill="#64748b" opacity="0.7" />
-    <rect x="12" y="60" width="85" height="6" rx="3" fill="#64748b" opacity="0.5" />
-    <!-- Status Pill -->
-    <rect x="95" y="72" width="53" height="14" rx="7" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e" stroke-width="0.8" />
-    <text x="121" y="82" font-family="sans-serif" font-size="9" fill="#4ade80" font-weight="700" text-anchor="middle">ENROLLED</text>
+    <rect x="12" y="36" width="70" height="7" rx="3" fill="#38bdf8" opacity="0.8" />
+    <rect x="12" y="49" width="115" height="6" rx="3" fill="#64748b" opacity="0.7" />
+    <rect x="12" y="61" width="90" height="6" rx="3" fill="#64748b" opacity="0.5" />
+    <rect x="100" y="72" width="53" height="15" rx="7.5" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e" stroke-width="0.8" />
+    <text x="126" y="83" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#4ade80" font-weight="700" text-anchor="middle">ENROLLED</text>
   </g>
 
   <!-- Floating Dynamic Device Card 2 (Mobile / Android / iOS) -->
-  <g class="device-card-2" transform="translate(970, 185)">
-    <rect width="105" height="140" rx="14" fill="url(#cardGrad)" stroke="#6366f1" stroke-width="1.2" stroke-opacity="0.7" filter="url(#glow)" />
-    <!-- Speaker & Camera -->
+  <g transform="translate(980, 160)">
+    <animateTransform attributeName="transform" type="translate"
+      values="980,160; 980,170; 980,160" dur="6s" repeatCount="indefinite" />
+    <rect width="105" height="135" rx="14" fill="url(#cardGrad)" stroke="#6366f1" stroke-width="1.2" stroke-opacity="0.8" filter="url(#glow)"/>
     <rect x="42" y="8" width="22" height="3" rx="1.5" fill="#475569" />
     <circle cx="70" cy="9.5" r="2" fill="#38bdf8" />
-    <!-- Screen content -->
-    <rect x="10" y="20" width="85" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
-    <text x="52" y="37" font-family="sans-serif" font-size="9" fill="#93c5fd" font-weight="600" text-anchor="middle">MDM SECURE</text>
-    <rect x="10" y="56" width="85" height="5" rx="2.5" fill="#475569" opacity="0.6" />
-    <rect x="10" y="67" width="65" height="5" rx="2.5" fill="#475569" opacity="0.4" />
-    <rect x="10" y="78" width="75" height="5" rx="2.5" fill="#475569" opacity="0.4" />
-    <!-- Lock Shield Icon -->
-    <circle cx="52" cy="110" r="14" fill="#3b82f6" fill-opacity="0.2" stroke="#38bdf8" stroke-width="1" />
-    <path d="M 48 109 L 52 105 L 56 109 L 56 114 L 48 114 Z" fill="#38bdf8" />
+    <rect x="10" y="18" width="85" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
+    <text x="52" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#93c5fd" font-weight="600" text-anchor="middle">MDM SECURE</text>
+    <rect x="10" y="52" width="85" height="5" rx="2.5" fill="#475569" opacity="0.6" />
+    <rect x="10" y="63" width="65" height="5" rx="2.5" fill="#475569" opacity="0.4" />
+    <rect x="10" y="74" width="75" height="5" rx="2.5" fill="#475569" opacity="0.4" />
+    <circle cx="52" cy="105" r="13" fill="#3b82f6" fill-opacity="0.2" stroke="#38bdf8" stroke-width="1" />
+    <path d="M 48 104 L 52 100 L 56 104 L 56 109 L 48 109 Z" fill="#38bdf8" />
   </g>
 
-  <!-- FOREGROUND CONTENT: Guaranteed completely clear, legible and in front -->
-  <g transform="translate(70, 75)">
-    <!-- Category Pill Badge -->
-    <g transform="translate(0, 0)">
-      <rect width="260" height="28" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2" stroke-opacity="0.7" />
-      <circle cx="16" cy="14" r="5" fill="#38bdf8" />
-      <text x="32" y="19" class="badge-text">ENTERPRISE FLEET &amp; MDM / UEM</text>
+  <!-- FOREGROUND CONTENT: Completely legible, unobstructed and in front -->
+  <g transform="translate(70, 0)">
+    <!-- Badge Pill -->
+    <g transform="translate(0, 45)">
+      <rect width="250" height="28" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+      <circle cx="15" cy="14" r="5" fill="#38bdf8"/>
+      <text x="135" y="19" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">ENTERPRISE FLEET &amp; UEM / MDM</text>
     </g>
 
     <!-- Main Title -->
-    <text x="0" y="75" class="title-text">Awesome Mobile Device Fleet Management</text>
+    <text x="0" y="120" fill="url(#titleGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="40" font-weight="800" letter-spacing="-0.5" filter="url(#glow)">Awesome Mobile Device Fleet Management</text>
 
     <!-- Subtitle -->
-    <text x="0" y="112" class="subtitle-text">Curated SaaS UEM &amp; Open-Source MDM Platforms for Android, iOS, macOS &amp; Windows</text>
+    <text x="0" y="165" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="500">Curated SaaS UEM &amp; Open-Source MDM Platforms for Android, iOS, macOS &amp; Windows</text>
 
-    <!-- Interactive / Highlighting Feature Pills -->
-    <g transform="translate(0, 142)">
-      <!-- Pill 1: Cross-Platform -->
-      <g transform="translate(0, 0)">
-        <rect width="130" height="34" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
-        <text x="65" y="22" class="pill-text" text-anchor="middle">📱 iOS &amp; Android</text>
-      </g>
-      <!-- Pill 2: Desktop Endpoints -->
-      <g transform="translate(142, 0)">
-        <rect width="145" height="34" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
-        <text x="72" y="22" class="pill-text" text-anchor="middle">💻 macOS &amp; Win</text>
-      </g>
-      <!-- Pill 3: GitOps & Security -->
-      <g transform="translate(299, 0)">
-        <rect width="145" height="34" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
-        <text x="72" y="22" class="pill-text" text-anchor="middle">🔒 Zero-Trust MDM</text>
-      </g>
-      <!-- Pill 4: Open Source -->
-      <g transform="translate(456, 0)">
-        <rect width="140" height="34" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2" />
-        <text x="70" y="22" class="pill-text" fill="#38bdf8" text-anchor="middle">⚡ Open-Source</text>
-      </g>
+    <!-- Feature Pills -->
+    <g transform="translate(0, 205)">
+      <!-- Pill 1 -->
+      <rect x="0" y="0" width="145" height="32" rx="8" fill="#0f172a" fill-opacity="0.75" stroke="#475569"/>
+      <text x="72" y="21" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" text-anchor="middle">📱 iOS &amp; Android</text>
+
+      <!-- Pill 2 -->
+      <rect x="155" y="0" width="155" height="32" rx="8" fill="#0f172a" fill-opacity="0.75" stroke="#475569"/>
+      <text x="232" y="21" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" text-anchor="middle">💻 macOS &amp; Windows</text>
+
+      <!-- Pill 3 -->
+      <rect x="320" y="0" width="155" height="32" rx="8" fill="#0f172a" fill-opacity="0.75" stroke="#475569"/>
+      <text x="397" y="21" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" text-anchor="middle">🔒 Zero-Trust MDM</text>
+
+      <!-- Pill 4 -->
+      <rect x="485" y="0" width="145" height="32" rx="8" fill="#0f172a" fill-opacity="0.75" stroke="#38bdf8" stroke-width="1.2"/>
+      <text x="557" y="21" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" text-anchor="middle">⚡ Open-Source</text>
     </g>
   </g>
 </svg>
